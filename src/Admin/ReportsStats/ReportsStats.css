@@ -1,0 +1,80 @@
+/* Reports & Stats screen. Charts are drawn with Chart.js. */
+
+.rs-toolbar-note {
+  margin: 0;
+  font-size: 12px;
+  color: #7a808a;
+}
+
+.rs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.rs-select {
+  padding: 8px 10px;
+  border: 1px solid var(--line, #ebe7e0);
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  color: var(--jet-black);
+}
+
+/* two charts per row */
+.rs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rs-card {
+  padding: 20px;
+}
+
+.rs-card--wide {
+  grid-column: 1 / -1;
+}
+
+/* Chart.js needs a box with a fixed height to fill */
+.rs-chart {
+  position: relative;
+  height: 260px;
+  margin-top: 14px;
+}
+
+.rs-empty {
+  margin: 0;
+  padding: 60px 0;
+  text-align: center;
+  color: #7a808a;
+}
+
+.rs-rate {
+  font-weight: 600;
+}
+
+/* "Print / PDF" should only print the report, not the menus */
+@media print {
+  .admin-sidebar,
+  .admin-topbar,
+  .admin-overlay,
+  .rs-noprint {
+    display: none !important;
+  }
+
+  .admin-shell { display: block; }
+  .admin-card { break-inside: avoid; box-shadow: none; }
+}
+
+@media (max-width: 860px) {
+  .rs-grid { grid-template-columns: 1fr; }
+}
+
+/* phones: less padding, filters use the full width */
+@media (max-width: 560px) {
+  .rs-card { padding: 14px; }
+  .rs-filters { align-items: stretch; }
+  .rs-select { width: 100%; }
+}

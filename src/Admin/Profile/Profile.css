@@ -1,0 +1,171 @@
+/* Admin Profile screen. Form fields reuse rt-field from Rescue Teams. */
+
+.pf-page {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.pf-side,
+.pf-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- profile summary card ---------- */
+.pf-summary {
+  padding: 28px 22px;
+  text-align: center;
+}
+
+.pf-avatar {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--brandy);
+  color: #fff;
+  font-size: 34px;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.pf-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pf-photo-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.pf-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pf-role {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: #f6e3dd;
+  color: var(--brandy);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pf-facts {
+  margin: 20px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line, #ebe7e0);
+  text-align: left;
+  display: grid;
+  gap: 12px;
+}
+
+.pf-facts dt {
+  font-size: 12px;
+  color: #7a808a;
+}
+
+.pf-facts dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+/* ---------- forms ---------- */
+.pf-form {
+  padding: 22px;
+}
+
+.pf-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.pf-form__foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* the form classes (rt-field) normally live inside a modal, so style them here too */
+.pf-form .rt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pf-form .rt-field input[disabled] {
+  background: #f3f0ea;
+  color: #7a808a;
+}
+
+.pf-success {
+  margin: 0 auto 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2f6b34;
+}
+
+/* ---------- password strength ---------- */
+.pf-strength {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.pf-strength span {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--stone, #e4e0d9);
+}
+
+.pf-strength--1 span:nth-child(-n + 1) { background: #c0392b; }
+.pf-strength--2 span:nth-child(-n + 2) { background: var(--tuscan-sun, #f2c14e); }
+.pf-strength--3 span:nth-child(-n + 3) { background: #6aa56e; }
+.pf-strength--4 span:nth-child(-n + 4) { background: #2f6b34; }
+
+/* ---------- recent activity ---------- */
+.pf-activity {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.pf-activity li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line, #ebe7e0);
+  font-size: 13px;
+}
+
+.pf-activity li:last-child { border-bottom: 0; }
+.pf-activity time { color: #7a808a; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .pf-page { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .pf-form__grid { grid-template-columns: 1fr; }
+}
